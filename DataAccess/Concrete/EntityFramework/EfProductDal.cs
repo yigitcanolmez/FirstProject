@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,20 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
+
+    
+
     public class EfProductDal : IProductDal
-    {
+    { 
         public void Add(Product entity)
         {
-            throw new NotImplementedException();
+            using (NorthwindContext northwindContext = new NorthwindContext())
+            {
+                var addedEntity = northwindContext.Entry(entity);
+                addedEntity.State = EntityState.Added;
+                northwindContext.SaveChanges();
+
+            }
         }
 
         public void Delete(Product entity)
