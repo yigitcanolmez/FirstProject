@@ -8,8 +8,9 @@ using Entities.Concrete;
 ProductService productService = new ProductService(new EfProductDal());
 CategoryService categoryService = new CategoryService(new EfCategoryDal());
 
+var productDetail = productService.GetProductDetail();
 
-foreach (var prodcutDetail in productService.GetProductDetail())
+foreach (var prodcutDetail in productDetail.Data)
 {
     Console.WriteLine(prodcutDetail.ProductName + " | " + prodcutDetail.CategoryName);
 }

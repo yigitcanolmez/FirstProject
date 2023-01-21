@@ -1,24 +1,20 @@
-﻿using Core.Utilities.Results;
+﻿using Core.Utilities.Results.DataResult;
+using Core.Utilities.Results.Results;
 using Entities.Concrete;
 using Entities.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
     public interface IProductService
     {
-        List<Product> GetAll();
-        List<Product> GetAllCategoryId(int id);
-        List<Product> GetByUnitPrice(decimal minPrice, decimal maxPrice);
-        List<ProductDetailDTO> GetProductDetail();
-        Product GetById(int productId);
+        IDataResult<List<Product>> GetAll();
+        IDataResult<List<Product>> GetAllCategoryId(int id);
+        IDataResult<List<Product>> GetByUnitPrice(decimal minPrice, decimal maxPrice);
+        IDataResult<List<ProductDetailDTO>> GetProductDetail();
+        IDataResult<Product> GetById(int productId);
         IResult Add(Product product);
         IResult Delete(Product product);
-        IResult Update(Product product);   
+        IResult Update(Product product);
 
     }
 }
