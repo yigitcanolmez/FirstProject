@@ -9,7 +9,7 @@ namespace Core.Utilities.Results.DataResult
             Data = data;
             Message = message;
             IsSuccess = success;
-        }
+        }   
         public DataResult(T data, bool success) : base(success)
         {
             Data = data;
