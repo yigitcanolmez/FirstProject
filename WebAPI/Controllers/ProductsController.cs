@@ -57,5 +57,5 @@ namespace WebAPI.Controllers
         //    "UnitsInStock" : 550,
         //    "UnitPrice" : 3400
         //}
-    }
+}
 }

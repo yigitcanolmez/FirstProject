@@ -7,6 +7,8 @@
         public static string ProductUpdated = "Ürün Güncellendi";
 
         public static string ProductNameInvalid = "Ürün İsmi Geçersiz";
+        public static string ProductNameShort = "Ürün ismi daha uzun olmalıdır.";
+        public static string ProductPriceError = "Ürün fiyatı sıfırdan küçük olamaz";
         public static string ProductGet = "Ürünler Başarıyla Getirildi";
 
         public static string CategoryAdded = "Kategori Eklendi";

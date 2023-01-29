@@ -1,11 +1,15 @@
 ﻿using Business.Abstract;
 using Business.Constant;
+using Business.ValidationRules.FleuntValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results.DataResult;
 using Core.Utilities.Results.DataResults;
 using Core.Utilities.Results.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System.Net.Http.Headers;
 
 namespace Business.Concrete
@@ -18,23 +22,24 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
             _productDal.Add(product);
-            return new Result(true, Messages.ProductAdded);
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult Delete(Product product)
         {
 
             _productDal.Delete(product);
-            return new Result(true, Messages.ProductDeleted);
+            return new SuccessResult( Messages.ProductDeleted);
 
         }
         public IResult Update(Product product)
         {
             _productDal.Update(product);
-            return new Result(true, Messages.ProductUpdated);
+            return new SuccessResult(Messages.ProductUpdated);
         }
 
         public IDataResult<List<Product>> GetAll()
@@ -43,7 +48,7 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
-            return new DataResult<List<Product>>(_productDal.GetAll(),true,"Ürünler başarılı bir şekilde getirildi.");
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(),"Ürünler başarılı bir şekilde getirildi.");
         }
 
         public IDataResult<List<Product>> GetAllCategoryId(int id)
