@@ -20,6 +20,8 @@
 
         public static string MaintenanceTime = "Sistem Bakım Zamanında";
 
+        public static string ProductCountForCategory = "Aynı Kategoriden Maksimum 10 Adet Ürün Eklenebilir.";
 
+        public static string ProductNameExist = "Aynı İsimde Başka Ürün Mevcut";
     }
 }

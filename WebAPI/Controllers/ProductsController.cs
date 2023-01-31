@@ -51,11 +51,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        //        { BODY SCRIPT
-        //    "CategoryId" : 1,
-        //    "ProductName" : "Laptop",
-        //    "UnitsInStock" : 550,
-        //    "UnitPrice" : 3400
-        //}
+         
 }
 }

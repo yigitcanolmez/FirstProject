@@ -4,6 +4,9 @@ namespace Core.Utilities.Interceptors
 {
     public abstract class MethodInterception : MethodInterceptionBaseAttribute
     {
+        //invocationlar kullandığın metotların anlamına gelir
+        //interceptionlar araya girme; metot başlarken, metot devam ederken, başarılı olursa...
+        //aspect metot başında sonunda çalışan...
         protected virtual void OnBefore(IInvocation invocation) { }
         protected virtual void OnAfter(IInvocation invocation) { }
         protected virtual void OnException(IInvocation invocation, System.Exception e) { }
