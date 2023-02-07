@@ -12,13 +12,17 @@ namespace Core.Utilities.Business
     {
         public static IResult Run(params IResult[] logics)
         {
+          
             foreach (var item in logics)
             {
+                
                 if (!item.IsSuccess)
                 {
                     return item;
                 }
+
             }
+
             return null;
         }
     }
